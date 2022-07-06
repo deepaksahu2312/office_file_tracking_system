@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% load static %}
+{% block content %}
+    <head>
+        <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    </head>
+    <body onload="init()">
+    <div class="row main_header">
+        <!-- <center><h2><b>Registration</b></h2></center>
+         <br>-->
+    </div>
+
+    <div class="container" style="min-width:min-content;margin-bottom: 8%">
+
+        <div class=" md-3" style="margin-top:2%;">
+
+            <div class=" sm-3 ">
+                <h3 style="text-align:center">Add New Application Form</h3>
+                    <div id="uploadForm" class="well well-lg">
+                    <form method="POST" action="/content/add_scholarship" enctype="multipart/form-data"
+                          onsubmit="return validateForm();">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="formText">Title *</label>
+                            <input class="form-control" name="title" id="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="formText">Abbreviation *</label>
+                            <input class="form-control" name="abbreviation" id="abbreviation" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="formText">Department </label>
+                            <input class="form-control" name="department" id="department" >
+                        </div>
+                        <div class="form-group">
+                            <label class="formText">Receiver ID </label>
+                            <input class="form-control" name="receiver_authority_id" id="receiver_authority_id" >
+                        </div>
+                        <div class="form-group">
+                            <label class="formText">Requirements Info </label>
+                            <input class="form-control" name="requirements_info" id="requirements_info" >
+                        </div>
+                        <div class="form-group">
+                            <label class="formText">Max Verification Level</label>
+                            <input class="form-control" name="max_step" id="max_step" >
+                        </div>
+                        <center>
+                            <button type="submit" id="btn"  class="formButton">Add</button>
+                        </center>
+                    </form>
+                    <br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+    {# Main Section #}
+{% endblock content %}

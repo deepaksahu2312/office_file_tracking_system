@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block content3 %}"../media/{{ user.image }}"{% endblock content3 %}
+{% block content4 %}"../media/{{ user.image }}"{% endblock content4 %}
+{% load static %}
+{% block content %}
+    <head>
+        <script src="https://kit.fontawesome.com/57456f662e.js" crossorigin="anonymous"></script>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    </head>
+    <body>
+        <div class="about-section">
+            <div class="inner-container">
+              <h1> Abstract</h1>
+              <p class="text">
+                  Application Tracking System
+                <br>
+                <br>
+                This project is developed to digitize the process of application and verification 
+                for college documents and other purpose and to provide a hectic free solution for 
+                the process of circulating new forms.In this system a new Staff member or a Student 
+                can register themselves and then login to use the system.Students can apply for any 
+                ongoing event and their Application automatically goes to the concerned authority 
+                who can redirect it to higher authorities and then they can approve it or reject it 
+                and the Applicants will be able to track their applications in real time.
+              </p>
+            </div>
+          </div>
+    </body>
+
+{% endblock content %}
