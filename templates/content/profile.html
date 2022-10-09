@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% block title %}Profile{% endblock title %}
+{% load static %}
+{% block content3 %}"../media/{{ user.image }}"{% endblock content3 %}
+{% block content4 %}"../media/{{ user.image }}"{% endblock content4 %}
+{% csrf_token %}
+{% block content %}
+
+    <head>
+        <script src="https://kit.fontawesome.com/57456f662e.js" crossorigin="anonymous"></script>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    </head>
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+            color: #000;
+        }
+
+        .student-profile .card {
+            border-radius: 10px;
+        }
+
+        .student-profile .card .card-header .profile_img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin: 10px auto;
+            border: 10px solid #ccc;
+            border-radius: 50%;
+        }
+
+        .student-profile .card h3 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .student-profile .card p {
+            font-size: 16px;
+            color: #000;
+        }
+
+        .student-profile .table th,.student-profile .table td {
+            font-size: 14px;
+            padding: 5px 10px;
+            color: #000;
+        }
+    </style>
+
+    <body>
+        <!-- Student Profile -->
+        <div class="student-profile py-4">
+            <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-transparent text-center">
+                    <img class="profile_img" src="/media/{{ user.image }}" alt="">
+                    <h3>Hi, {{ request.user.first_name}} {{ request.user.last_name}}</h3>
+                
+                    
+                    </div>
+                    <div class="card-body">
+                    {% if request.user.role == "S" %}
+                    <p class="mb-0"><strong class="pr-1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspStudent ID: </strong>321000001</p>
+                    {% else %}
+                    <p class="mb-0"><strong class="pr-1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspStaff ID: </strong>321000002</p>
+                    {% endif %}
+                    <p class="mb-0"><strong class="pr-1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCourse: </strong>MCA</p>
+                    <p class="mb-0"><strong class="pr-1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSection: </strong>A</p>
+                    </div>
+                </div>
+                </div>
+                <div class="col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-transparent border-0">
+                    <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
+                    </div>
+                    <div class="card-body pt-0">
+                    <table class="table table-bordered">
+                        <tr>
+                        <th width="30%">Name</th>
+                        <td width="2%">:</td>
+                        <td>{{ request.user.first_name}} {{ request.user.last_name}}</td>
+                        </tr>
+                        <tr>
+                        <th width="30%">Role</th>
+                        <td width="2%">:</td>
+                        {% if user.role == "S" %}
+                        <td>Student</td>
+                        {% else %}
+                        <td>{{ request.user.role}}</td>
+                        {% endif %}
+                        </tr>
+                        <tr>
+                        <th width="30%">Email	</th>
+                        <td width="2%">:</td>
+                        <td>{{ request.user.email}}</td>
+                        </tr>
+                        <tr>
+                        <th width="30%">Gender</th>
+                        <td width="2%">:</td>
+                        {% if user.gender == "M" %}
+                        <td>Male</td>
+                        {% else %}
+                        <td>Female</td>
+                        {% endif %}
+                        </tr>
+                        <tr>
+                        <th width="30%">Contact</th>
+                        <td width="2%">:</td>
+                        <td>+91{{ request.user.mobile}}</td>
+                        </tr>
+                        <tr>
+                        <th width="30%">Blood Group</th>
+                        <td width="2%">:</td>
+                        <td>B+</td>
+                        </tr>
+                        <tr>
+                        <th width="30%">Department</th>
+                        <td width="2%">:</td>
+                        <td>Computer Application</td>
+                        </tr>
+                        <tr>
+                        <th width="30%">Account Status</th>
+                        <td width="2%">:</td>
+                        {% if user.is_active == 1 %}
+                        <td>Active</td>
+                        {% else %}
+                        <td>Not Active</td>
+                        {% endif %}
+                        </tr>
+                    </table>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </body>
+
+{% endblock content %}

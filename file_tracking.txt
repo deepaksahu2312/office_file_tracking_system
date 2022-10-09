@@ -1,0 +1,10 @@
+student user name - kartik password - KPmyapp@99
+teacher user - amit password - AJmyapp@99
+dean - kundan password KKmyapp@99
+hod - shivam password SRmyapp@99
+faculty adviser user - nirmal password - NDmyapp@99
+director user - hariom password - HRmyapp@99
+admin user - deepak password - DSmyapp@99
+
+
+superuser  name - deepaksahu password - 123456
